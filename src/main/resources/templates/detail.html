@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>イシュー詳細</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+
+<header>
+    <a th:href="@{/}">IssueApp</a>
+</header>
+
+<div class="page-title">
+    <h1>イシュー詳細</h1>
+</div>
+
+<div class="form">
+    <form action="#" th:action="@{/issues/{issueId}/update(issueId=${issue.getId()})}" th:method="post" th:object="${issue}">
+        <div class="form-title">
+            <h2 class="column-title">タイトル</h2>
+            <input type="text" th:field="*{title}">
+        </div>
+        <div class="form-content">
+            <h2 class="column-title">内容</h2>
+            <textarea th:field="*{content}"></textarea>
+        </div>
+        <div class="form-period">
+            <h2 class="column-title">期限</h2>
+            <input type="date" th:field="*{period}">
+        </div>
+        <div class="form-importance">
+            <h2 class="column-title">重要度</h2>
+            <input type="text" th:field="*{importance}">
+        </div>
+        <div class="form-submit">
+            <button type="submit">作成</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
