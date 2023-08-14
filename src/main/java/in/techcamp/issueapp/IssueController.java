@@ -1,7 +1,6 @@
 package in.techcamp.issueapp;
 
 import lombok.AllArgsConstructor;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,8 +33,8 @@ public class IssueController {
     }
 
     @GetMapping("/issues/{id}")
-    public String issueDetail(@PathVariable ling id, Model model){
-        var issue = issueRepository.findById();
+    public String issueDetail(@PathVariable long id, Model model){
+        var issue = issueRepository.findById(id);
         model.addAttribute("issue", issue);
         return "detail";
     }
